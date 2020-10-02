@@ -5,21 +5,25 @@
 Clone
 : git clone https://github.com/map7/diskspace
 
+*** Quick install
+
+: sudo sh ./install.sh
+
+*** Manual install
+
 Copy
 : sudo cp diskspace.sh /usr/local/sbin
-
-** Setup
 
 Copy sample
 : sudo cp config.sh.sample /etc/diskspace_config.sh
 : sudo chmod +x /etc/diskspace_config.sh
 
-Edit the DISKSPACE_RECIPIENT to your email in /etc/diskspace_config.sh
-
-** Schedule
-
 In crontab
 : */5 * * * * root /usr/local/sbin/diskspace.sh
+
+** Setup
+
+Edit the DISKSPACE_RECIPIENT to your email in /etc/diskspace_config.sh
 
 ** Acknowledgements
 

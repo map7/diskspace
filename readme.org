@@ -6,12 +6,13 @@ Clone
 : git clone https://github.com/map7/diskspace
 
 Copy
-: cp diskspace /usr/local/sbin
+: sudo cp diskspace.sh /usr/local/sbin
 
 ** Setup
 
 Copy sample
-: cp config.sh.sample /etc/diskspace_config.sh
+: sudo cp config.sh.sample /etc/diskspace_config.sh
+: sudo chmod +x /etc/diskspace_config.sh
 
 Edit the DISKSPACE_RECIPIENT to your email in /etc/diskspace_config.sh
 

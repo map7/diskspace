@@ -7,7 +7,7 @@ echo "Install diskspace"
 echo "--------------------------------------------------------------------------------"
 echo
 echo "Just run this once, hit Ctrl+c now if you've already ran this"
-read
+read ans
 
 cp diskspace.sh /usr/local/sbin
 cp config.sh.sample /etc/diskspace_config.sh

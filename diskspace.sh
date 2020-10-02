@@ -28,10 +28,27 @@ do
     partition=$(echo $output | awk '{ print $2 }' )
     if [ $usep -ge $DISKSPACE_THRESHOLD ]; then
         msg="Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)"
+
+        emailmsg="$msg
+        \n
+        \n
+        Suggestions\n
+        --------------------------------------------------------------------------------\n
+        \n
+        ROOT PARITIONS\n
+        \n
+        $ apt autoclean\n
+        $ apt clean\n
+        $ ncdu -x /\n
+        \n
+        HOME PARTITIONS\n
+        \n
+        $ bleachbit\n
+        "
         
         echo $msg
         echo $msg >> /var/log/fs_report.log
-        echo $msg |
+        echo $emailmsg |
             mail -s "$(hostname) Alert: Almost out of disk space. $partition Used: $usep% (detected by /usr/local/bin/diskspace.sh) DISKSPACE_THRESHOLD: $DISKSPACE_THRESHOLD %" "$DISKSPACE_RECIPIENT"
     fi
 done

@@ -35,10 +35,12 @@ do
         Suggestions\n
         --------------------------------------------------------------------------------\n
         \n
-        ROOT PARITIONS\n
+        ROOT PARITIONS (use at own risk)\n
         \n
         $ apt autoclean\n
         $ apt clean\n
+        $ sudo docker system prune
+        $ snap list --all |grep disabled
         $ ncdu -x /\n
         \n
         HOME PARTITIONS\n

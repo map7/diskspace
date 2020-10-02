@@ -27,9 +27,11 @@ echo $output
   usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1  )
   partition=$(echo $output | awk '{ print $2 }' )
   if [ $usep -ge $DISKSPACE_THRESHOLD ]; then
-       echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)"
-       echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)" >> /var/log/fs_report.log
-       echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)" |
+      msg="Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)"
+      
+       echo $msg
+       echo $msg >> /var/log/fs_report.log
+       echo $msg |
        mail -s "$(hostname) Alert: Almost out of disk space. $partition Used: $usep% (detected by /usr/local/bin/diskspace.sh) DISKSPACE_THRESHOLD: $DISKSPACE_THRESHOLD %" "$DISKSPACE_RECIPIENT"
   fi
 done

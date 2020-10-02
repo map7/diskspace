@@ -1,4 +1,4 @@
 # Copy this file to config.sh and customise
 DISKSPACE_RECIPIENT=email@yourdomain.com
 DISKSPACE_THRESHOLD=90
-DISKSPACE_DEVICE_EXCEPTION="udev" # This could be a partition you don't want to watch eg: /dev/sda4|/dev/sda5
+DISKSPACE_DEVICE_EXCEPTION="udev|/dev/loop0|/dev/loop1" # This could be a partition you don't want to watch eg: /dev/sda4|/dev/sda5
